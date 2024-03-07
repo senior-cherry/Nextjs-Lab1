@@ -1,4 +1,5 @@
 import React from "react";
+import Header from "@/app/components/Header";
 
 export default function PagesLayout({
    children,
@@ -7,6 +8,7 @@ export default function PagesLayout({
 }>) {
     return (
         <html lang="en">
+        <Header />
         <body>{children}</body>
         </html>
     );
