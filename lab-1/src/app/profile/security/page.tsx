@@ -1,8 +1,10 @@
+import Layout from "@/app/components/Layout";
+
 const Security = () => {
     return (
-        <div>
-            <h1>Security</h1>
-        </div>
+       <Layout>
+           <h1>Security</h1>
+       </Layout>
     );
 }
 

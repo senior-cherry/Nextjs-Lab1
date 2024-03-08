@@ -1,8 +1,10 @@
+import Layout from "@/app/components/Layout";
+
 const Settings = () => {
     return (
-        <div>
+        <Layout>
             <h1>Settings</h1>
-        </div>
+        </Layout>
     );
 }
 

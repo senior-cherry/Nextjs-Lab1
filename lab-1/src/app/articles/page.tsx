@@ -1,6 +1,10 @@
-function Articles() {
+import Layout from "@/app/components/Layout";
+
+const Articles = () => {
     return (
-        <h1>Articles</h1>
+        <Layout>
+            <h1>Articles</h1>
+        </Layout>
     );
 }
 

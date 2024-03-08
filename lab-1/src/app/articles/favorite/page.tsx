@@ -1,8 +1,10 @@
+import ArticlesLayout from "@/app/components/ArticlesLayout";
+
 const Favorite = () => {
     return (
-        <div>
+        <ArticlesLayout>
             <h1>Favorite</h1>
-        </div>
+        </ArticlesLayout>
     );
 }
 
