@@ -18,16 +18,40 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+  font-family: Arial, sans-serif;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.active {
+  color: orange;
+}
+
+.post {
+  border: 1px solid grey;
+  margin: 8px;
+  padding: 8px;
+}
+
+.post h2 {
+  font-weight: bold;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.navbar ul {
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin-right: 16px;
 }

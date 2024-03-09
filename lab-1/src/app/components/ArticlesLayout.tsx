@@ -1,13 +1,16 @@
+'use client';
 import React from 'react';
+import { usePathname } from 'next/navigation'
 
 const ArticlesLayout = ({ children }) => {
+    const pathname = usePathname();
     return (
         <div>
             {/* Додайте заголовок, навігаційне меню або інші елементи, що повторюються */}
-            <nav>
+            <nav className="navbar">
                 <ul>
-                    <li><a href="/articles/favorite">Articles favorite</a></li>
-                    <li><a href="/articles/create">Articles create</a></li>
+                    <li><a href="/articles/favorite" className={`link ${pathname === '/articles/favorite' ? 'active' : ''}`}>Articles favorite</a></li>
+                    <li><a href="/articles/create" className={`link ${pathname === '/articles/create' ? 'active' : ''}`}>Articles create</a></li>
                 </ul>
             </nav>
 
