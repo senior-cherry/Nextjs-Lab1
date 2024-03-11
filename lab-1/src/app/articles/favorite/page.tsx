@@ -1,6 +1,8 @@
 'use client';
-import {useState, useEffect} from "react";
+import {useState, useEffect, Suspense} from "react";
 import ArticlesLayout from "@/app/components/ArticlesLayout";
+import FavoriteArticle from "@/app/components/FavoriteArticle";
+import Loading from "@/app/components/Loading";
 
 const Favorite = () => {
     const [data, setData] = useState([]);
@@ -24,12 +26,7 @@ const Favorite = () => {
     }, [])
     return (
         <ArticlesLayout>
-            <p>{data.map((post) => {
-                return <div className="post">
-                    <h2>{post.title}</h2>
-                    <p>{post.body}</p>
-                </div>
-            })}</p>
+                <FavoriteArticle data={data} />
         </ArticlesLayout>
     );
 }
