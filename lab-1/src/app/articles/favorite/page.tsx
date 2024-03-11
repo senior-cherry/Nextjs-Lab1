@@ -26,7 +26,9 @@ const Favorite = () => {
     }, [])
     return (
         <ArticlesLayout>
+            <Suspense fallback={<Loading />}>
                 <FavoriteArticle data={data} />
+            </Suspense>
         </ArticlesLayout>
     );
 }
