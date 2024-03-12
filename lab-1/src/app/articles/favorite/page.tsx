@@ -6,6 +6,7 @@ import Loading from "@/app/components/Loading";
 
 const Favorite = () => {
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         let posts = [];
@@ -20,15 +21,19 @@ const Favorite = () => {
                 console.log(error);
             }
             setData(posts);
+            setLoading(false)
         }
 
         fetchData();
     }, [])
+
+    if (loading) {
+        return <Loading />
+    }
+
     return (
         <ArticlesLayout>
-            <Suspense fallback={<Loading />}>
                 <FavoriteArticle data={data} />
-            </Suspense>
         </ArticlesLayout>
     );
 }

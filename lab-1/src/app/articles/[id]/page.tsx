@@ -1,16 +1,22 @@
 'use client';
 import Layout from "@/app/components/Layout";
-import { useState, useEffect } from "react";
 import Loading from "@/app/components/Loading";
+import { useEffect, useState } from "react";
 
-export default function Page({ params }: {params: {id: number}}) {
-    const [data, setData] = useState(null);
+interface Article {
+    id: number,
+    title: string,
+    body: string
+}
+
+const ArticlePage = ({ params }: any) => {
+    const [data, setData] = useState<Article | null>(null);
     const [comment, setComment] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch('https://jsonplaceholder.typicode.com/posts/' + params.id);
+                const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`);
                 if (res.ok) {
                     const apiData = await res.json();
                     setData(apiData);
@@ -18,13 +24,13 @@ export default function Page({ params }: {params: {id: number}}) {
                     console.log("Failed to fetch data");
                 }
             } catch (error) {
-                console.log("Error: ", error)
+                console.log("Error: ", error);
             }
-        }
+        };
 
         const getComments = async () => {
             try {
-                const res = await fetch("https://jsonplaceholder.typicode.com/posts/1/comments");
+                const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}/comments`);
                 if (res.ok) {
                     const commentData = await res.json();
                     setComment(commentData);
@@ -32,21 +38,13 @@ export default function Page({ params }: {params: {id: number}}) {
                     console.log("Failed to fetch data");
                 }
             } catch (error) {
-                console.log("Error: ", error)
+                console.log("Error: ", error);
             }
-        }
+        };
+
         fetchData();
         getComments();
-        generateStaticParams();
-    }, [])
-
-    async function generateStaticParams() {
-        const posts = await fetch('https://jsonplaceholder.typicode.com/posts/').then((res) => res.json())
-
-        return posts.map((post) => ({
-            id: post.id,
-        }))
-    }
+    }, [params.id]);
 
     return (
         <Layout>
@@ -54,31 +52,35 @@ export default function Page({ params }: {params: {id: number}}) {
             <div>
                 {data ? (
                     <pre>
-                        <div className="post" key={data.id}>
-                            <h2>{data.title}</h2>
-                            <p>{data.body}</p>
-                        </div>
-                    </pre>
+            <div className="post">
+              <h2>{data.title}</h2>
+              <p>{data.body}</p>
+            </div>
+          </pre>
                 ) : (
                     <Loading />
                 )}
             </div>
-                <h2 className="title">Comments</h2>
+            <h2 className="title">Comments</h2>
             <div>
                 {comment ? (
                     <pre>
-                        {comment.map((comment) => {
-                            return <div className="post" key={comment.id}>
-                                <p>{comment.body}</p>
-                            </div>
-                        })}
-                    </pre>
+            {comment.map((comment) => (
+                <div className="post">
+                    <p>{comment.body}</p>
+                </div>
+            ))}
+          </pre>
                 ) : (
                     <Loading />
                 )}
             </div>
         </Layout>
     );
-}
+};
+
+export default ArticlePage;
+
+
 
 
