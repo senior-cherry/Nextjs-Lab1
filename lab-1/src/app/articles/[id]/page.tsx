@@ -9,9 +9,14 @@ interface Article {
     body: string
 }
 
+interface Comment {
+    id: number,
+    body: string
+}
+
 const ArticlePage = ({ params }: any) => {
     const [data, setData] = useState<Article | null>(null);
-    const [comment, setComment] = useState(null);
+    const [comment, setComment] = useState<Comment[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -66,7 +71,7 @@ const ArticlePage = ({ params }: any) => {
                 {comment ? (
                     <pre>
             {comment.map((comment) => (
-                <div className="post">
+                <div className="post" key={comment.id}>
                     <p>{comment.body}</p>
                 </div>
             ))}

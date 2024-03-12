@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './styles/variables';
+@import './styles/typography';
+@import './styles/layout';
+@import './styles/mixins';
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

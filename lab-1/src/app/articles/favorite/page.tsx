@@ -9,7 +9,7 @@ const Favorite = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        let posts = [];
+        let posts: any = [];
         const fetchData = async () => {
             try {
                 for (let i = 1; i < 4; i++) {

@@ -1,10 +1,4 @@
 import Link from "next/link";
-import PagesLayout from "@/app/profile/layout";
-import Settings from "@/app/profile/settings/page";
-import Security from "@/app/profile/security/page";
-import Articles from "@/app/articles/page";
-import Header from "@/app/components/Header";
-import RootLayout from "@/app/layout";
 
 export default function Home() {
   return (

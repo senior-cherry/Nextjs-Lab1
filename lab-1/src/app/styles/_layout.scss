@@ -1,0 +1,16 @@
+// _layout.scss
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: $primary-color;
+  color: white;
+}
+
+.footer {
+  background-color: $secondary-color;
+  color: white;
+}

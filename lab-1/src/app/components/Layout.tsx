@@ -2,7 +2,7 @@
 import React from 'react';
 import {usePathname} from "next/navigation";
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: any) => {
     const pathname = usePathname();
     return (
         <div>

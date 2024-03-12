@@ -3,8 +3,14 @@ import Layout from "@/app/components/Layout";
 import { useState, useEffect } from "react";
 import Loading from "@/app/components/Loading";
 
+interface Post {
+    id: number,
+    title: string,
+    body: string
+}
+
 const Articles = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState<Post[] | null>(null);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -21,12 +27,13 @@ const Articles = () => {
         }
         fetchData();
     }, [])
+
     return (
         <Layout>
             <div>
                 {data ? (
                     <pre>{data.map((post) => {
-                        return <div className="post">
+                        return <div className="post" key={post.id}>
                             <h2>{post.title}</h2>
                             <p>{post.body}</p>
                         </div>
