@@ -53,7 +53,7 @@ const ArticlePage = ({ params }: any) => {
 
     return (
         <Layout>
-            <h2 className="title">Post</h2>
+            <h2 className="sub-title">Post</h2>
             <div>
                 {data ? (
                     <pre>
@@ -66,7 +66,7 @@ const ArticlePage = ({ params }: any) => {
                     <Loading />
                 )}
             </div>
-            <h2 className="title">Comments</h2>
+            <h2 className="sub-title">Comments</h2>
             <div>
                 {comment ? (
                     <pre>

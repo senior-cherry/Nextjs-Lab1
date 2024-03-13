@@ -6,7 +6,6 @@ const ArticlesLayout = ({ children }: any) => {
     const pathname = usePathname();
     return (
         <div>
-            {/* Додайте заголовок, навігаційне меню або інші елементи, що повторюються */}
             <nav className="navbar">
                 <ul>
                     <li><a href="/articles/favorite" className={`link ${pathname === '/articles/favorite' ? 'active' : ''}`}>Articles favorite</a></li>
@@ -14,7 +13,7 @@ const ArticlesLayout = ({ children }: any) => {
                 </ul>
             </nav>
 
-            {/* Вставте контент сторінки */}
+            <button className="btn" onClick={() => history.back()}>Назад</button>
             {children}
         </div>
     );

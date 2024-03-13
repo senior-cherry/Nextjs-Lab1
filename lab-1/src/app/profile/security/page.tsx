@@ -3,7 +3,7 @@ import Layout from "@/app/components/Layout";
 const Security = () => {
     return (
        <Layout>
-           <h1>Security</h1>
+           <h1 className="title">Security</h1>
        </Layout>
     );
 }

@@ -1,14 +1,17 @@
 // _typography.scss
 
-body {
+main {
   font-family: $font-family;
-  font-size: 16px;
+  background: $primary-color;
+  font-size: $font-size;
+  font-weight: $font-weight;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: bold;
+h1 {
+  font-weight: $font-weight;
 }
 
 p {
-  line-height: 1.5;
+  line-height: $line-height;
 }
+
