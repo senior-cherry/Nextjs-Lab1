@@ -1,15 +1,19 @@
-const FavoriteArticle = (props: any) => {
+import Loading from "@/app/components/Loading";
+import {Suspense} from "react";
+
+// @ts-ignore
+const FavoriteArticle = (props) => {
     return (
+        <Suspense fallback={<Loading />}>
         <div>
                 <pre>
-                {props.data.map((post: any) => {
-                    return <div className="post" key={post.id}>
-                            <h2>{post.title}</h2>
-                            <p>{post.body}</p>
-                        </div>
-                })}
+                    <div className="post" key={props.id}>
+                        <h2>{props.title}</h2>
+                        <p>{props.body}</p>
+                    </div>
                 </pre>
         </div>
+        </Suspense>
     );
 }
 

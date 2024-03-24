@@ -3,38 +3,40 @@ import {useState, useEffect, Suspense} from "react";
 import ArticlesLayout from "@/app/components/ArticlesLayout";
 import FavoriteArticle from "@/app/components/FavoriteArticle";
 import Loading from "@/app/components/Loading";
+import Layout from "@/app/components/Layout";
 
 const Favorite = () => {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
+    let apiData: any;
+    let id;
+    let title;
+    let body;
 
     useEffect(() => {
-        let posts: any = [];
+
         const fetchData = async () => {
             try {
-                for (let i = 1; i < 4; i++) {
-                    const res = await fetch("https://jsonplaceholder.typicode.com/posts/" + i)
-                    const apiData = await res.json();
-                    posts.push(apiData);
-                }
+                const res = await fetch("https://jsonplaceholder.typicode.com/posts/1")
+                apiData = await res.json();
+                id = apiData.id;
+                title = apiData.title;
+                body = apiData.body;
+                console.log(id)
+                console.log(title);
+                console.log(body);
             } catch (error) {
                 console.log(error);
             }
-            setData(posts);
-            setLoading(false)
         }
 
         fetchData();
     }, [])
 
-    if (loading) {
-        return <Loading />
-    }
-
     return (
-        <ArticlesLayout>
-                <FavoriteArticle data={data} />
-        </ArticlesLayout>
+        <Layout>
+            <ArticlesLayout>
+                    <FavoriteArticle id={id} title={title} body={body} />
+            </ArticlesLayout>
+        </Layout>
     );
 }
 
