@@ -11,6 +11,7 @@ interface Post {
 
 const Articles = () => {
     const [data, setData] = useState<Post[] | null>(null);
+
     useEffect(() => {
         const fetchData = async () => {
             try {

@@ -1,43 +1,19 @@
-'use client';
-import {useState, useEffect, Suspense} from "react";
-import ArticlesLayout from "@/app/components/ArticlesLayout";
-import FavoriteArticle from "@/app/components/FavoriteArticle";
-import Loading from "@/app/components/Loading";
+import FavoriteArticle from '../../components/FavoriteArticle';
 import Layout from "@/app/components/Layout";
+import ArticlesLayout from "@/app/components/ArticlesLayout";
 
-const Favorite = () => {
-    let apiData: any;
-    let id;
-    let title;
-    let body;
-
-    useEffect(() => {
-
-        const fetchData = async () => {
-            try {
-                const res = await fetch("https://jsonplaceholder.typicode.com/posts/1")
-                apiData = await res.json();
-                id = apiData.id;
-                title = apiData.title;
-                body = apiData.body;
-                console.log(id)
-                console.log(title);
-                console.log(body);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        fetchData();
-    }, [])
-
+const FavoriteArticlesPage = () => {
     return (
         <Layout>
             <ArticlesLayout>
-                    <FavoriteArticle id={id} title={title} body={body} />
+                <div>
+                    <FavoriteArticle articleId={1} />
+                    <FavoriteArticle articleId={2} />
+                    <FavoriteArticle articleId={3} />
+                </div>
             </ArticlesLayout>
         </Layout>
     );
-}
+};
 
-export default Favorite;
+export default FavoriteArticlesPage;
