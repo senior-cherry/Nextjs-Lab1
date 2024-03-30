@@ -175,3 +175,5 @@ main().catch((err) => {
         err,
     );
 });
+
+export default main;
