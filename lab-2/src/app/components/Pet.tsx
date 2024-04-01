@@ -1,19 +1,22 @@
-import {Category} from ".prisma/client";
+import DeletePetButton from "@/app/components/DeletePetButton";
 
 interface Pet {
-    id: number,
+    id: string,
     name: string,
     species: string,
-    age: number,
+    age: string,
     skills: string[],
+    categoryName: string
 }
-export default function Pet({id, name, species, age, skills}: Pet) {
+export default function Pet({id, name, species, age, skills, categoryName}: Pet) {
     return (
         <div>
             <h3>{name}</h3>
             <h4>{species}</h4>
             <h4>{age}</h4>
             <p>{skills}</p>
+            <p>{categoryName}</p>
+            <DeletePetButton petId={id} />
         </div>
     );
 }
