@@ -29,7 +29,7 @@ export default function updatePet(request, {params}) {
 
         try {
             fetch(`/api/update-pet/${params.id}`, {
-                method: 'PATCH/PUT',
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -45,20 +45,20 @@ export default function updatePet(request, {params}) {
     }
 
     return (
-        <div>
+        <div className="add-form">
             <h1>Add Pet</h1>
-            <Link href="/">Feed</Link>
+            <Link href="/">Pets</Link>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="name">Name:</label><br></br>
                     <input type="text" id="name" value={name} onChange={handleNameChange} required />
                 </div>
                 <div>
-                    <label htmlFor="species">Species:</label>
+                    <label htmlFor="species">Species:</label><br></br>
                     <input type="text" id="species" value={species} onChange={handleSpeciesChange} required />
                 </div>
                 <div>
-                    <label htmlFor="age">Age:</label>
+                    <label htmlFor="age">Age:</label><br></br>
                     <input type="text" id="age" value={age} onChange={handleAgeChange} required />
                 </div>
                 <button type="submit">Submit</button>

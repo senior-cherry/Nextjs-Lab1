@@ -18,8 +18,32 @@
 
 body {
   background: black;
-  color: crimson;
+  color: orange;
+  font-size: 20px;
 }
+
+.pet {
+  border: 1px solid white;
+  margin: 8px;
+  padding: 8px;
+  width: 90%;
+}
+
+.pet .actions {
+  color: crimson;
+  font-weight: bold;
+}
+
+button {
+  display: block;
+}
+
+input {
+  width: 25%;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
 
 @layer utilities {
   .text-balance {
