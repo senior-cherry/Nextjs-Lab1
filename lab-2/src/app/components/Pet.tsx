@@ -1,4 +1,6 @@
 import DeletePetButton from "@/app/components/DeletePetButton";
+import Link from "next/link";
+import UpdatePetButton from "@/app/components/UpdatePetButton";
 
 interface Pet {
     id: string,
@@ -16,6 +18,7 @@ export default function Pet({id, name, species, age, skills, categoryName}: Pet)
             <h4>{age}</h4>
             <p>{skills}</p>
             <p>{categoryName}</p>
+            <UpdatePetButton petId={id} />
             <DeletePetButton petId={id} />
         </div>
     );

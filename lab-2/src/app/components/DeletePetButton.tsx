@@ -15,6 +15,6 @@ export default function DeletePetButton({petId}: any) {
     }
 
     return (
-        <button onClick={handleDelete}>Delete Post</button>
+        <button onClick={handleDelete}>Delete Pet</button>
     );
 }
