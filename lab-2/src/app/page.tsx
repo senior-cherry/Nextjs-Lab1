@@ -17,7 +17,6 @@ async function getPets(): Promise<PrismaPromise<GetFindResult<Prisma.$PetPayload
 }
 
 export default async function Home() {
-  console.log(process.env.SERVER_VARIABLE)
 
   const pets = await getPets();
   return (
